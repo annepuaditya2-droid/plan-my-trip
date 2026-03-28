@@ -13,7 +13,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import PromptTemplate
 from pydantic import BaseModel, Field
 from langchain_core.output_parsers import PydanticOutputParser
-os.environ["GOOGLE_API_KEY"] = "AIzaSyB8927dQuaRax3qM_nrYC_X03aaunSwwbk"
+os.environ["GOOGLE_API_KEY"] = ""
 class TripIntent(BaseModel):
     city: str = Field(description="The city the user wants to visit. Must be exactly: Delhi, Jaipur, Goa, Hyderabad, Bangalore, Chennai, Mumbai, or Varanasi.")
     people: int = Field(description="Number of people traveling. Default is 2.")
