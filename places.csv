@@ -1,0 +1,42 @@
+city,place_name,category,entry_fee,avg_time_spent,distance_from_center,lat,lon
+Delhi,Red Fort,historical,35,2.0,5,28.6562,77.241
+Delhi,Qutub Minar,historical,30,2.0,15,28.5245,77.1855
+Delhi,India Gate,monument,0,1.0,2,28.6129,77.2295
+Delhi,Lotus Temple,spiritual,0,1.5,12,28.5535,77.2588
+Delhi,Akshardham,spiritual,0,3.0,10,28.6127,77.2773
+Delhi,Chandni Chowk,shopping,0,2.5,6,28.6505,77.2303
+Jaipur,Amber Fort,historical,100,3.0,11,26.9855,75.8513
+Jaipur,Hawa Mahal,historical,50,1.0,1,26.9239,75.8267
+Jaipur,City Palace,museum,200,2.0,2,26.9255,75.8236
+Jaipur,Jal Mahal,monument,50,1.0,8,26.9673,75.8456
+Jaipur,Albert Hall Museum,museum,40,1.5,4,26.9116,75.8193
+Goa,Baga Beach,nature,0,3.0,18,15.5528,73.7514
+Goa,Dudhsagar Falls,nature,100,4.0,60,15.3144,74.3143
+Goa,Anjuna Beach,nature,0,2.5,20,15.5819,73.7426
+Goa,Chapora Fort,historical,0,1.5,22,15.6057,73.7346
+Goa,Palolem Beach,nature,0,3.0,70,15.0099,74.0232
+Hyderabad,Charminar,historical,25,1.0,4,17.3616,78.4747
+Hyderabad,Golconda Fort,historical,25,2.5,12,17.3833,78.4011
+Hyderabad,Hussain Sagar Lake,nature,0,1.5,5,17.4239,78.4738
+Hyderabad,Chowmahalla Palace,historical,60,2.0,5,17.3578,78.4717
+Hyderabad,Nehru Zoological Park,nature,50,3.5,16,17.3496,78.451
+Bangalore,Lalbagh Garden,nature,30,2.0,4,12.9507,77.5848
+Bangalore,Cubbon Park,nature,0,1.5,1,12.9779,77.5952
+Bangalore,Bangalore Palace,historical,230,2.0,5,12.9988,77.5921
+Bangalore,Vidhana Soudha,monument,0,1.0,2,12.9796,77.5906
+Bangalore,Wonderla,adventure,1200,6.0,28,12.8343,77.401
+Chennai,Marina Beach,nature,0,2.0,5,13.05,80.2824
+Chennai,Kapaleeshwarar Temple,spiritual,0,1.0,7,13.0335,80.2697
+Chennai,Government Museum,museum,50,2.5,4,13.0732,80.2566
+Chennai,Elliot Beach,nature,0,2.0,10,13.0003,80.2736
+Chennai,Guindy National Park,nature,20,2.0,12,13.0076,80.2389
+Mumbai,Gateway of India,monument,0,1.0,2,18.922,72.8347
+Mumbai,Marine Drive,nature,0,1.5,3,18.944,72.8227
+Mumbai,Siddhivinayak Temple,spiritual,0,1.0,8,19.0166,72.8302
+Mumbai,Haji Ali Dargah,spiritual,0,1.5,6,18.9827,72.8089
+Mumbai,Sanjay Gandhi National Park,nature,60,4.0,30,19.2147,72.9106
+Varanasi,Kashi Vishwanath Temple,spiritual,0,1.5,2,25.3109,83.0107
+Varanasi,Dashashwamedh Ghat,cultural,0,1.0,1,25.3065,83.0106
+Varanasi,Sarnath Museum,historical,20,2.0,10,25.3811,83.0242
+Varanasi,Ramnagar Fort,historical,50,2.0,14,25.2698,83.0252
+Varanasi,Assi Ghat,cultural,0,1.5,4,25.2886,83.0055

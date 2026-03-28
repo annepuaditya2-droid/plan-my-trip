@@ -1,0 +1,5 @@
+vehicle_type,price_per_km,max_capacity,available_units
+bus,1.0,40,5
+auto,2.0,3,0
+bike,1.5,2,10
+cab,3.0,4,2

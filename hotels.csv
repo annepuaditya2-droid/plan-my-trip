@@ -1,0 +1,19 @@
+hotel_name,price_per_night,rating,location_type,available_rooms
+Backpacker Hostel,40,4.0,low budget,10
+City Budget Inn,60,3.8,low budget,5
+Moonlight Hostel,35,4.3,low budget,8
+Nomad Pods,50,4.1,low budget,12
+Budget Stay,55,3.9,low budget,4
+Wanderers Nest,45,4.4,low budget,6
+Standard Hotel,150,4.2,medium,2
+Riverside View,180,4.5,medium,3
+Urban Retreat,200,4.3,medium,5
+Comfort Inn,160,4.1,medium,8
+Oasis Hotel,220,4.6,medium,4
+Zenith Rooms,190,4.4,medium,7
+Grand Palace,500,4.8,luxury,0
+Luxury Resort,800,4.7,luxury,5
+Taj View,750,4.9,luxury,2
+Royal Heritage,600,4.6,luxury,4
+Elite Suites,900,4.8,luxury,1
+The Crown Resort,850,4.9,luxury,3
