@@ -1,0 +1,145 @@
+hotel_name,price_per_night,rating,location_type,available_rooms,city
+Backpacker Hostel Delhi,400,4.0,low budget,8,Delhi
+City Budget Inn,600,3.8,low budget,5,Delhi
+Wanderers Nest,500,4.4,low budget,6,Delhi
+Hotel Ginger,750,4.1,low budget,10,Delhi
+Hostel Buzz,550,4.2,low budget,7,Delhi
+Budget Residency,650,3.9,low budget,4,Delhi
+Clarion Collection Suites,1200,4.3,medium,4,Delhi
+The Leela Ambience,1500,4.5,medium,3,Delhi
+Novotel New Delhi,1400,4.4,medium,5,Delhi
+ITC Grand Central,1600,4.6,medium,4,Delhi
+Crowne Plaza,1300,4.2,medium,6,Delhi
+Park Hotel New Delhi,1100,4.1,medium,5,Delhi
+The Oberoi New Delhi,3500,4.9,luxury,2,Delhi
+Taj Palace New Delhi,4000,4.9,luxury,2,Delhi
+Leela Palace New Delhi,4500,4.9,luxury,1,Delhi
+Hyatt Regency Delhi,3800,4.8,luxury,3,Delhi
+The Lodhi,3200,4.7,luxury,4,Delhi
+Ashok Hotel,2800,4.6,luxury,2,Delhi
+Jaipur Hostel,350,4.1,low budget,10,Jaipur
+Pink City Budget Hotel,450,3.9,low budget,8,Jaipur
+Nomads Jaipur,500,4.3,low budget,6,Jaipur
+Royal Budget Inn,400,4.0,low budget,7,Jaipur
+Raj Mahal Hostel,480,4.2,low budget,5,Jaipur
+Backpacker Jaipur,420,4.0,low budget,9,Jaipur
+Alsisar Haveli,1100,4.4,medium,4,Jaipur
+Fairfield by Marriott,1300,4.6,medium,5,Jaipur
+The Fern Residency,1200,4.3,medium,6,Jaipur
+Ramada Jaipur,1000,4.1,medium,4,Jaipur
+Lemon Tree Hotel,950,4.2,medium,5,Jaipur
+OYO Townhouse,900,4.0,medium,7,Jaipur
+Rambagh Palace,4500,4.9,luxury,1,Jaipur
+Taj Jai Mahal,3800,4.9,luxury,2,Jaipur
+Rajputana Palace Sheraton,2800,4.8,luxury,3,Jaipur
+Samode Palace,3200,4.8,luxury,2,Jaipur
+Mandawa Haveli Heritage,2500,4.7,luxury,2,Jaipur
+The Lalit,2200,4.6,luxury,3,Jaipur
+Goa Backpackers,350,4.2,low budget,12,Goa
+Sea Breeze Hostel,400,4.0,low budget,8,Goa
+Sunburn Hostel,450,4.3,low budget,10,Goa
+Budget Rooms Baga,380,3.9,low budget,6,Goa
+Nomad Pads Goa,420,4.1,low budget,7,Goa
+Coral Beach Hostel,390,4.0,low budget,9,Goa
+Alila Diwa Goa,1500,4.6,medium,5,Goa
+Radisson Blu Goa,1600,4.7,medium,4,Goa
+Vivanta by Taj,1400,4.5,medium,6,Goa
+Novotel Goa,1300,4.4,medium,5,Goa
+Park Hyatt Goa,1450,4.6,medium,3,Goa
+Taj Exotica Resort,1200,4.3,medium,4,Goa
+Taj Aguada,3500,4.9,luxury,2,Goa
+Leela Goa,4000,4.9,luxury,1,Goa
+The Sands Goa,3200,4.8,luxury,2,Goa
+Fort Aguada Beach Resort,2800,4.7,luxury,3,Goa
+Neemrana Fort Palace,2500,4.8,luxury,2,Goa
+SwaSwara Resort,3000,4.8,luxury,2,Goa
+Hyderabad Budget Stay,300,4.0,low budget,10,Hyderabad
+City Budget Hotel,400,3.9,low budget,7,Hyderabad
+Nomads Hyderabad,350,4.2,low budget,8,Hyderabad
+Backpacker Hub,320,4.1,low budget,6,Hyderabad
+Pearl City Hostel,380,4.0,low budget,9,Hyderabad
+Budget Residency,360,3.8,low budget,5,Hyderabad
+Novotel Hyderabad,1100,4.4,medium,5,Hyderabad
+Radisson Blu Plaza,1200,4.5,medium,4,Hyderabad
+The Park Hotel,1050,4.2,medium,6,Hyderabad
+Crowne Plaza Hyderabad,1150,4.3,medium,5,Hyderabad
+Vivanta by Taj,1300,4.6,medium,3,Hyderabad
+Hilton Hyderabad,1250,4.4,medium,4,Hyderabad
+The Oberoi Hyderabad,2500,4.8,luxury,2,Hyderabad
+Taj Deccan,2800,4.9,luxury,2,Hyderabad
+ITC Kohinoor,3000,4.9,luxury,1,Hyderabad
+Falaknuma Palace,3500,4.9,luxury,1,Hyderabad
+Chandela Hotel,2200,4.7,luxury,3,Hyderabad
+The Lalit Ashok,2000,4.6,luxury,2,Hyderabad
+Bangalore Budget Hostel,300,4.1,low budget,12,Bangalore
+IT City Backpackers,350,4.0,low budget,10,Bangalore
+CoWorks Hostel,380,4.2,low budget,8,Bangalore
+Budget Rooms Bangalore,320,3.9,low budget,7,Bangalore
+Silicon Valley Stays,340,4.1,low budget,9,Bangalore
+Nomad Pads Bangalore,360,4.0,low budget,6,Bangalore
+Novotel Bangalore,1200,4.4,medium,5,Bangalore
+The Citadel,1100,4.3,medium,6,Bangalore
+Vivanta by Taj,1300,4.5,medium,4,Bangalore
+Hilton Bangalore,1250,4.6,medium,3,Bangalore
+St. Mark's Hotel,1000,4.1,medium,5,Bangalore
+Crowne Plaza,1150,4.2,medium,4,Bangalore
+The Oberoi Bangalore,2800,4.9,luxury,2,Bangalore
+Taj West End,3200,4.9,luxury,1,Bangalore
+ITC Gardenia,2600,4.8,luxury,3,Bangalore
+Park Hyatt Bangalore,2400,4.7,luxury,2,Bangalore
+Chancery Hotel,2000,4.6,luxury,3,Bangalore
+Leela Palace Bangalore,3500,4.8,luxury,1,Bangalore
+Chennai Backpackers,320,4.0,low budget,10,Chennai
+Marina Hostel,350,4.1,low budget,8,Chennai
+City Budget Inn,300,3.9,low budget,6,Chennai
+Sea Shore Hostel,380,4.2,low budget,7,Chennai
+Beach Bum Backpackers,360,4.0,low budget,5,Chennai
+Nomads Chennai,400,4.1,low budget,9,Chennai
+Novotel Chennai,1100,4.3,medium,5,Chennai
+Crowne Plaza Chennai,1200,4.4,medium,4,Chennai
+The Park Chennai,1000,4.2,medium,6,Chennai
+Radisson Blu,1150,4.5,medium,5,Chennai
+Vivanta by Taj,1300,4.6,medium,3,Chennai
+ITC Grand Central,1250,4.4,medium,4,Chennai
+Taj Coromandel,2800,4.9,luxury,2,Chennai
+Leela Palace Chennai,3200,4.9,luxury,1,Chennai
+The Accord Metropolitan,2400,4.7,luxury,3,Chennai
+Park Hyatt Chennai,2600,4.8,luxury,2,Chennai
+ITC Sangeetha,2200,4.6,luxury,2,Chennai
+Savera Hotel,1800,4.5,luxury,3,Chennai
+Mumbai Budget Hostel,350,4.1,low budget,12,Mumbai
+Backpackers Cave,400,4.0,low budget,10,Mumbai
+City Stay Mumbai,380,4.2,low budget,8,Mumbai
+Marine Budget Inn,420,3.9,low budget,6,Mumbai
+Gateway Hostel,360,4.0,low budget,9,Mumbai
+Nomadic Mumbai,390,4.1,low budget,7,Mumbai
+The Grand by Maratha,1300,4.4,medium,4,Mumbai
+ITC Maratha,1400,4.5,medium,5,Mumbai
+Radisson Blu Plaza,1500,4.6,medium,3,Mumbai
+Vivanta by Taj,1600,4.7,medium,4,Mumbai
+Renaissance Mumbai,1450,4.5,medium,4,Mumbai
+Crowne Plaza Mumbai,1350,4.4,medium,5,Mumbai
+Taj Palace Mumbai,3200,4.9,luxury,2,Mumbai
+The Oberoi Mumbai,3500,4.9,luxury,1,Mumbai
+Trident Mumbai,2800,4.8,luxury,3,Mumbai
+Leela Mumbai,4000,4.9,luxury,1,Mumbai
+Four Seasons Mumbai,3800,4.9,luxury,2,Mumbai
+JW Marriott Mumbai,3500,4.8,luxury,2,Mumbai
+Varanasi Budget Hostel,250,4.0,low budget,10,Varanasi
+Ganges View Hostel,300,4.1,low budget,8,Varanasi
+Spiritual Stay,280,4.2,low budget,6,Varanasi
+Budget Rooms Varanasi,270,3.9,low budget,7,Varanasi
+Nomads Varanasi,290,4.0,low budget,5,Varanasi
+City Budget Inn,260,4.1,low budget,9,Varanasi
+Taj Gateway,900,4.3,medium,4,Varanasi
+Clarion Collection,850,4.2,medium,5,Varanasi
+The Fern Residency,800,4.1,medium,6,Varanasi
+Ramada Varanasi,750,4.0,medium,4,Varanasi
+Hotel Hari,700,3.9,medium,5,Varanasi
+OYO Townhouse,650,3.8,medium,4,Varanasi
+Radisson Blu Varanasi,1800,4.6,luxury,2,Varanasi
+Hotel Meraden Grand,1600,4.5,luxury,3,Varanasi
+Bridge View Hotel,1400,4.4,luxury,2,Varanasi
+Taj Ganges,2200,4.8,luxury,2,Varanasi
+Ramada Plaza,1900,4.7,luxury,2,Varanasi
+Ganga Kinara,1500,4.5,luxury,3,Varanasi

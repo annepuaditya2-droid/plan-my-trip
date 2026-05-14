@@ -1,0 +1,6 @@
+vehicle_type,price_per_km,max_capacity,available_units,description
+bus,8,40,15,Comfortable intercity bus with AC
+auto,12,3,20,Auto-rickshaw - Quick city travel
+cab,15,4,25,Comfortable taxi service (Ola/Uber)
+bike,10,2,30,Two-wheeler rental for solo/couple
+tempo,20,10,8,Shared mini-van for groups

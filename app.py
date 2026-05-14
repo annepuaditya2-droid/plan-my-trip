@@ -13,7 +13,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import PromptTemplate
 from pydantic import BaseModel, Field
 from langchain_core.output_parsers import PydanticOutputParser
-os.environ["GOOGLE_API_KEY"] = "ENTER THE API KEY"
+os.environ["GOOGLE_API_KEY"] = "AIzaSyDgniG7hT-BugnRuKYAaf4rPjHRZiaOii8"
 class TripIntent(BaseModel):
     city: str = Field(description="The city the user wants to visit. Must be exactly: Delhi, Jaipur, Goa, Hyderabad, Bangalore, Chennai, Mumbai, or Varanasi.")
     people: int = Field(description="Number of people traveling. Default is 2.")
@@ -42,100 +42,19 @@ def get_current_weather(lat, lon):
         return current['temperature'], current['windspeed']
     except Exception as e:
         return None, None
-def create_mock_data():
-    needs_regen = False    
-    if os.path.exists("places.csv"):
-        temp_df = pd.read_csv("places.csv")
-        if len(temp_df) < 20: 
-            needs_regen = True
-    if not os.path.exists("places.csv") or needs_regen:
-        data = [
-            ["Delhi", "Red Fort", "historical", 35, 2.0, 5, 28.6562, 77.2410],
-            ["Delhi", "Qutub Minar", "historical", 30, 2.0, 15, 28.5245, 77.1855],
-            ["Delhi", "India Gate", "monument", 0, 1.0, 2, 28.6129, 77.2295],
-            ["Delhi", "Lotus Temple", "spiritual", 0, 1.5, 12, 28.5535, 77.2588],
-            ["Delhi", "Akshardham", "spiritual", 0, 3.0, 10, 28.6127, 77.2773],
-            ["Delhi", "Chandni Chowk", "shopping", 0, 2.5, 6, 28.6505, 77.2303],
-            ["Jaipur", "Amber Fort", "historical", 100, 3.0, 11, 26.9855, 75.8513],
-            ["Jaipur", "Hawa Mahal", "historical", 50, 1.0, 1, 26.9239, 75.8267],
-            ["Jaipur", "City Palace", "museum", 200, 2.0, 2, 26.9255, 75.8236],
-            ["Jaipur", "Jal Mahal", "monument", 50, 1.0, 8, 26.9673, 75.8456],
-            ["Jaipur", "Albert Hall Museum", "museum", 40, 1.5, 4, 26.9116, 75.8193],
-            ["Goa", "Baga Beach", "nature", 0, 3.0, 18, 15.5528, 73.7514],
-            ["Goa", "Dudhsagar Falls", "nature", 100, 4.0, 60, 15.3144, 74.3143],
-            ["Goa", "Anjuna Beach", "nature", 0, 2.5, 20, 15.5819, 73.7426],
-            ["Goa", "Chapora Fort", "historical", 0, 1.5, 22, 15.6057, 73.7346],
-            ["Goa", "Palolem Beach", "nature", 0, 3.0, 70, 15.0099, 74.0232],
-            ["Hyderabad", "Charminar", "historical", 25, 1.0, 4, 17.3616, 78.4747],
-            ["Hyderabad", "Golconda Fort", "historical", 25, 2.5, 12, 17.3833, 78.4011],
-            ["Hyderabad", "Hussain Sagar Lake", "nature", 0, 1.5, 5, 17.4239, 78.4738],
-            ["Hyderabad", "Chowmahalla Palace", "historical", 60, 2.0, 5, 17.3578, 78.4717],
-            ["Hyderabad", "Nehru Zoological Park", "nature", 50, 3.5, 16, 17.3496, 78.4510],
-            ["Bangalore", "Lalbagh Garden", "nature", 30, 2.0, 4, 12.9507, 77.5848],
-            ["Bangalore", "Cubbon Park", "nature", 0, 1.5, 1, 12.9779, 77.5952],
-            ["Bangalore", "Bangalore Palace", "historical", 230, 2.0, 5, 12.9988, 77.5921],
-            ["Bangalore", "Vidhana Soudha", "monument", 0, 1.0, 2, 12.9796, 77.5906],
-            ["Bangalore", "Wonderla", "adventure", 1200, 6.0, 28, 12.8343, 77.4010],
-            ["Chennai", "Marina Beach", "nature", 0, 2.0, 5, 13.0500, 80.2824],
-            ["Chennai", "Kapaleeshwarar Temple", "spiritual", 0, 1.0, 7, 13.0335, 80.2697],
-            ["Chennai", "Government Museum", "museum", 50, 2.5, 4, 13.0732, 80.2566],
-            ["Chennai", "Elliot Beach", "nature", 0, 2.0, 10, 13.0003, 80.2736],
-            ["Chennai", "Guindy National Park", "nature", 20, 2.0, 12, 13.0076, 80.2389],
-            ["Mumbai", "Gateway of India", "monument", 0, 1.0, 2, 18.9220, 72.8347],
-            ["Mumbai", "Marine Drive", "nature", 0, 1.5, 3, 18.9440, 72.8227],
-            ["Mumbai", "Siddhivinayak Temple", "spiritual", 0, 1.0, 8, 19.0166, 72.8302],
-            ["Mumbai", "Haji Ali Dargah", "spiritual", 0, 1.5, 6, 18.9827, 72.8089],
-            ["Mumbai", "Sanjay Gandhi National Park", "nature", 60, 4.0, 30, 19.2147, 72.9106],
-            ["Varanasi", "Kashi Vishwanath Temple", "spiritual", 0, 1.5, 2, 25.3109, 83.0107],
-            ["Varanasi", "Dashashwamedh Ghat", "cultural", 0, 1.0, 1, 25.3065, 83.0106],
-            ["Varanasi", "Sarnath Museum", "historical", 20, 2.0, 10, 25.3811, 83.0242],
-            ["Varanasi", "Ramnagar Fort", "historical", 50, 2.0, 14, 25.2698, 83.0252],
-            ["Varanasi", "Assi Ghat", "cultural", 0, 1.5, 4, 25.2886, 83.0055],
-        ]
-        pd.DataFrame(data, columns=["city", "place_name", "category", "entry_fee", "avg_time_spent", "distance_from_center", "lat", "lon"]).to_csv("places.csv", index=False)
+def load_data():
+    """Load data from separate CSV files"""
+    try:
+        df_places = pd.read_csv("data_places.csv")
+        df_hotels = pd.read_csv("data_hotels.csv")
+        df_transport = pd.read_csv("data_transport.csv")
+        return df_places, df_hotels, df_transport
+    except FileNotFoundError as e:
+        st.error(f"❌ Error loading data files: {e}")
+        st.stop()
 
-    if not os.path.exists("hotels.csv") or needs_regen:
-        pd.DataFrame({
-            "hotel_name": [
-                "Backpacker Hostel", "City Budget Inn", "Moonlight Hostel", "Nomad Pods", "Budget Stay", "Wanderers Nest",
-                "Standard Hotel", "Riverside View", "Urban Retreat", "Comfort Inn", "Oasis Hotel", "Zenith Rooms", 
-                "Grand Palace", "Luxury Resort", "Taj View", "Royal Heritage", "Elite Suites", "The Crown Resort"
-            ],
-            "price_per_night": [
-                40, 60, 35, 50, 55, 45,
-                150, 180, 200, 160, 220, 190,
-                500, 800, 750, 600, 900, 850
-            ],
-            "rating": [
-                4.0, 3.8, 4.3, 4.1, 3.9, 4.4,
-                4.2, 4.5, 4.3, 4.1, 4.6, 4.4,
-                4.8, 4.7, 4.9, 4.6, 4.8, 4.9
-            ],
-            "location_type": [
-                "low budget", "low budget", "low budget", "low budget", "low budget", "low budget",
-                "medium", "medium", "medium", "medium", "medium", "medium",
-                "luxury", "luxury", "luxury", "luxury", "luxury", "luxury"
-            ],
-            "available_rooms": [
-                10, 5, 8, 12, 4, 6,
-                2, 3, 5, 8, 4, 7,
-                0, 5, 2, 4, 1, 3 
-            ] 
-        }).to_csv("hotels.csv", index=False)
-
-    if not os.path.exists("transport.csv") or needs_regen:
-        pd.DataFrame({
-            "vehicle_type": ["bus", "auto", "bike", "cab"],
-            "price_per_km": [1, 2, 1.5, 3],
-            "max_capacity": [40, 3, 2, 4],
-            "available_units": [5, 0, 10, 2] 
-        }).to_csv("transport.csv", index=False)
-
-create_mock_data()
-
-df_places = pd.read_csv("places.csv")
-df_hotels = pd.read_csv("hotels.csv")
-df_transport = pd.read_csv("transport.csv")
+# Load all data from separate CSV files
+df_places, df_hotels, df_transport = load_data()
 if 'wallet_balance' not in st.session_state:
     st.session_state.wallet_balance = 0
 if 'step' not in st.session_state:
@@ -145,8 +64,10 @@ if 'use_ai_mode' not in st.session_state:
     st.session_state.use_ai_mode = False
 def optimize_route(destinations_df):
     return destinations_df.sort_values(by="distance_from_center").reset_index(drop=True)
-def get_hotel_options(pref):
-    suitable = df_hotels[(df_hotels['location_type'] == pref) & (df_hotels['available_rooms'] > 0)]
+def get_hotel_options(city, pref):
+    suitable = df_hotels[(df_hotels['city'] == city) & (df_hotels['location_type'] == pref) & (df_hotels['available_rooms'] > 0)]
+    if suitable.empty:
+        suitable = df_hotels[(df_hotels['city'] == city) & (df_hotels['available_rooms'] > 0)]
     if suitable.empty:
         suitable = df_hotels[df_hotels['available_rooms'] > 0]
     return suitable.sort_values(by="rating", ascending=False).head(5)
@@ -231,60 +152,309 @@ def generate_itinerary_pdf(city, start_date, arrival_time, days, num_people, hot
         pdf.cell(200, 6, txt=f"{current_time.strftime('%I:%M %p')} : Return to {hotel['hotel_name']}", ln=True)
         pdf.ln(5)
         
-    return pdf.output(dest='S').encode('latin-1')
+    pdf_bytes = pdf.output(dest='S')
+    if isinstance(pdf_bytes, bytearray):
+        return bytes(pdf_bytes)
+    return pdf_bytes
 
-st.set_page_config(page_title="AI Travel Planner", layout="wide")
-st.title("SMART PLANNER")
+st.set_page_config(page_title="AI Travel Planner", layout="wide", initial_sidebar_state="expanded")
+
+# Custom CSS Styling
+st.markdown("""
+<style>
+    /* Main Theme */
+    :root {
+        --primary-color: #FF6B35;
+        --secondary-color: #004E89;
+        --accent-color: #F77F00;
+        --success-color: #06A77D;
+        --bg-light: #F8F9FA;
+    }
+    
+    /* Title Styling */
+    .main-title {
+        background: linear-gradient(135deg, #FF6B35 0%, #F77F00 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-size: 3.5em !important;
+        font-weight: 800 !important;
+        margin-bottom: 0.5em;
+        text-align: center;
+        letter-spacing: -2px;
+    }
+    
+    .subtitle {
+        text-align: center;
+        color: #666;
+        font-size: 1.2em;
+        margin-bottom: 2em;
+        font-weight: 500;
+    }
+    
+    /* Card Styling */
+    .card-container {
+        background: white;
+        border-radius: 12px;
+        padding: 1.5em;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+        border-left: 5px solid #FF6B35;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        margin-bottom: 1em;
+        color: #333;
+    }
+    
+    .card-container:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+    
+    .hotel-card {
+        background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+        border-radius: 12px;
+        padding: 1.5em;
+        margin: 1em 0;
+        border-left: 5px solid #FF6B35;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        color: #111;
+    }
+    
+    .hotel-card:hover {
+        box-shadow: 0 8px 20px rgba(255, 107, 53, 0.2);
+        transform: translateY(-3px);
+    }
+    
+    /* Progress Indicator */
+    .progress-container {
+        display: flex;
+        justify-content: space-between;
+        margin: 2em 0;
+        padding: 1.5em;
+        background: linear-gradient(90deg, #f0f0f0 0%, #ffffff 50%, #f0f0f0 100%);
+        border-radius: 10px;
+    }
+    
+    .progress-step {
+        text-align: center;
+        flex: 1;
+        color: #1f2937;
+    }
+    
+    .progress-step .step-label {
+        color: #1f2937;
+        font-size: 0.95em;
+        font-weight: 700;
+        margin-top: 0.35em;
+        line-height: 1.2;
+    }
+    
+    .progress-step.active .step-label,
+    .progress-step.completed .step-label {
+        color: #111;
+    }
+    
+    .progress-step.active .step-circle {
+        background: linear-gradient(135deg, #FF6B35 0%, #F77F00 100%);
+        color: white;
+        box-shadow: 0 0 15px rgba(255, 107, 53, 0.4);
+    }
+    
+    .progress-step.completed .step-circle {
+        background: #06A77D;
+        color: white;
+        font-size: 1.5em;
+    }
+    
+    .step-circle {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: #e0e0e0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 0.5em;
+        font-weight: bold;
+        font-size: 1.2em;
+        transition: all 0.3s ease;
+    }
+    
+    /* Button Styling */
+    .stButton>button {
+        background: linear-gradient(135deg, #FF6B35 0%, #F77F00 100%) !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 8px !important;
+        padding: 12px 24px !important;
+        font-weight: 600 !important;
+        transition: all 0.3s ease !important;
+        font-size: 1em !important;
+    }
+    
+    .stButton>button:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3) !important;
+    }
+    
+    /* Metric Cards */
+    .metric-card {
+        background: white;
+        border-radius: 12px;
+        padding: 1.5em;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        border-top: 4px solid #FF6B35;
+    }
+    
+    .metric-value {
+        font-size: 2em;
+        font-weight: 800;
+        color: #FF6B35;
+        margin: 0.5em 0;
+    }
+    
+    .metric-label {
+        font-size: 0.9em;
+        color: #333;
+        font-weight: 600;
+    }
+    
+    /* Section Headers */
+    .section-header {
+        border-bottom: 3px solid rgba(255, 107, 53, 0.85);
+        padding-bottom: 0.5em;
+        margin-bottom: 1.5em;
+        font-size: 1.5em;
+        font-weight: 700;
+        color: #fff;
+    }
+    
+    /* Info Boxes */
+    .info-box {
+        background: linear-gradient(135deg, #E3F2FD 0%, #F3E5F5 100%);
+        border-left: 4px solid #004E89;
+        padding: 1em;
+        border-radius: 8px;
+        margin: 1em 0;
+        color: #333;
+    }
+    
+    /* Success State */
+    .success-banner {
+        background: linear-gradient(135deg, #06A77D 0%, #118b74 100%);
+        color: white;
+        padding: 2em;
+        border-radius: 12px;
+        text-align: center;
+        margin: 1.5em 0;
+        box-shadow: 0 8px 25px rgba(6, 168, 125, 0.2);
+    }
+
+    .manual-panel-header {
+        background: #1f2937;
+        color: white;
+        padding: 1rem;
+        border-radius: 12px;
+        margin-bottom: 1rem;
+        border: 1px solid rgba(255,255,255,0.12);
+        font-size: 1.35em;
+        font-weight: 700;
+    }
+
+    .manual-step-box {
+        background: #111827;
+        color: white;
+        padding: 1rem;
+        border-radius: 8px;
+        margin-bottom: 1.5rem;
+        border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .manual-step-box strong {
+        color: white;
+    }
+    
+    /* Select Box Styling */
+    .stSelectbox, .stMultiSelect {
+        border-radius: 8px !important;
+    }
+</style>
+""", unsafe_allow_html=True)
+
+# Title
+st.markdown("<div class='main-title'>✈️ SMART PLANNER</div>", unsafe_allow_html=True)
+st.markdown("<div class='subtitle'>AI-Powered Travel Itinerary Generator</div>", unsafe_allow_html=True)
 
 with st.sidebar:
-    st.header("💳 Travel Wallet")
-    st.metric("Current Balance", f"$ {st.session_state.wallet_balance}")
+    st.markdown("---")
+    st.markdown("<div style='text-align: center; margin: 1em 0;'><h2>💳 Travel Wallet</h2></div>", unsafe_allow_html=True)
     
-    colA, colB = st.columns(2)
-    with colA:
-        add_amount = st.number_input("Deposit Amount", min_value=0, step=100)
-        if st.button("Deposit"):
+    # Wallet Balance
+    wallet_col1, wallet_col2, wallet_col3 = st.columns(3)
+    with wallet_col2:
+        st.markdown(f"""
+        <div style='background: linear-gradient(135deg, #FF6B35 0%, #F77F00 100%); 
+                    color: white; padding: 1.5em; border-radius: 12px; text-align: center;'>
+            <div style='font-size: 0.9em; opacity: 0.9; margin-bottom: 0.5em;'>Balance</div>
+            <div style='font-size: 2em; font-weight: 800;'>$ {st.session_state.wallet_balance}</div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    st.markdown("---")
+    
+    col_deposit, col_withdraw = st.columns(2)
+    with col_deposit:
+        st.markdown("<div style='font-weight: 600; margin-bottom: 0.5em;'>➕ Deposit</div>", unsafe_allow_html=True)
+        add_amount = st.number_input("Deposit Amount", min_value=0, step=100, key="deposit_input", label_visibility="collapsed")
+        if st.button("Deposit", use_container_width=True, key="deposit_btn"):
             st.session_state.wallet_balance += add_amount
+            st.success(f"✅ Added $ {add_amount}")
+            time.sleep(1)
             st.rerun()
-    with colB:
-        withdraw_amount = st.number_input("Withdraw Amount", min_value=0, step=100)
-        if st.button("Withdraw"):
+    
+    with col_withdraw:
+        st.markdown("<div style='font-weight: 600; margin-bottom: 0.5em;'>➖ Withdraw</div>", unsafe_allow_html=True)
+        withdraw_amount = st.number_input("Withdraw Amount", min_value=0, step=100, key="withdraw_input", label_visibility="collapsed")
+        if st.button("Withdraw", use_container_width=True, key="withdraw_btn"):
             if withdraw_amount <= st.session_state.wallet_balance:
                 st.session_state.wallet_balance -= withdraw_amount
-                st.success(f"Withdrew $ {withdraw_amount}")
+                st.success(f"✅ Withdrew $ {withdraw_amount}")
                 time.sleep(1)
                 st.rerun()
             else:
-                st.error("Insufficient balance!")
+                st.error("❌ Insufficient balance!")
         
     st.markdown("---")
     
     # --- TOGGLE BUTTON FOR AI vs MANUAL ---
-    button_label = "Switch to Manual Mode ⚙️" if st.session_state.use_ai_mode else "Try AI Mode ✨"
-    if st.button(button_label, use_container_width=True):
+    button_label = "⚙️ Switch to Manual" if st.session_state.use_ai_mode else "✨ Try AI Mode"
+    if st.button(button_label, use_container_width=True, key="mode_toggle"):
         st.session_state.use_ai_mode = not st.session_state.use_ai_mode
         st.rerun()
     
     st.markdown("---")
     if st.session_state.use_ai_mode:
-        st.header("✨ AI Planner")
-        st.write("Just tell me what you want to do!")
+        st.markdown("<div class='section-header'>✨ AI Planner</div>", unsafe_allow_html=True)
+        st.markdown("<div class='info-box'>Just tell me about your dream trip and I'll create the perfect itinerary!</div>", unsafe_allow_html=True)
         
         user_input = st.text_area(
-            "Example: 'I want to go to Jaipur with 3 friends for 2 days. We want a luxury hotel, we like historical places, and we prefer cabs.'",
-            height=120
+            "Your Travel Request",
+            placeholder="Example: 'I want to visit Jaipur with 3 friends for 2 days. We want a luxury hotel, we like historical places, and we prefer cabs.'",
+            height=120,
+            label_visibility="collapsed"
         )
         
         # Keep Date and Time inputs available in AI mode so we don't lose that feature!
         col_date, col_time = st.columns(2)
         with col_date:
-            ai_travel_date = st.date_input("Start Date", datetime.today(), key="ai_date")
+            ai_travel_date = st.date_input("📅 Start Date", datetime.today(), key="ai_date")
         with col_time:
-            ai_arrival_time = st.time_input("Arrival Time", datetime.strptime("09:00 AM", "%I:%M %p").time(), key="ai_time")
+            ai_arrival_time = st.time_input("⏰ Arrival Time", datetime.strptime("09:00 AM", "%I:%M %p").time(), key="ai_time")
             
-        if st.button("Generate Plan with AI", type="primary"):
+        if st.button("✨ Generate Plan with AI", type="primary", use_container_width=True):
             if not user_input:
-                st.warning("Please enter a prompt first.")
+                st.warning("📝 Please describe your travel plan first.")
             else:
                 with st.spinner("🧠 AI is analyzing your request..."):
                     try:
@@ -292,7 +462,7 @@ with st.sidebar:
                         city_places = df_places[df_places.city.str.lower() == intent.city.lower()]
                         
                         if city_places.empty:
-                            st.error(f"Oops! The AI understood you want to go to *{intent.city}*, but we don't have any data for that city. Try Delhi or Jaipur!")
+                            st.error(f"❌ Oops! I understood you want to visit **{intent.city}**, but we don't have data for that city.\n\n**Available cities:** Delhi, Jaipur, Goa, Hyderabad, Bangalore, Chennai, Mumbai, Varanasi")
                         else:
                             if intent.interests:
                                 filtered_places = city_places[city_places.category.isin(intent.interests)]
@@ -315,32 +485,42 @@ with st.sidebar:
                             st.session_state.step = "preview"
                             st.rerun()
                     except Exception as e:
-                        st.error("The AI had trouble understanding that. Please ensure you mention a valid city and some preferences!")
+                        st.error("❌ Hmm, I couldn't understand that. Make sure to mention a valid city (Delhi, Jaipur, Goa, Hyderabad, Bangalore, Chennai, Mumbai, or Varanasi) and some preferences!")
 
     else:
-        st.header("1. The Journey")
-        selected_city = st.selectbox("Destination City", df_places['city'].unique())
-        num_people = st.number_input("Number of Travelers", min_value=1, value=2, step=1)
+        st.markdown("<div class='manual-panel-header'>🗺️ Manual Planner</div>", unsafe_allow_html=True)
+        
+        st.markdown("<div class='manual-step-box'><strong>Step 1: Your Journey</strong></div>", unsafe_allow_html=True)
+        selected_city = st.selectbox("🏙️ Destination City", df_places['city'].unique())
+        num_people = st.number_input("👥 Number of Travelers", min_value=1, value=2, step=1)
         
         col_date, col_time = st.columns(2)
         with col_date:
-            travel_date = st.date_input("Start Date", datetime.today())
+            travel_date = st.date_input("📅 Start Date", datetime.today())
         with col_time:
-            arrival_time = st.time_input("Arrival Time", datetime.strptime("09:00 AM", "%I:%M %p").time())
+            arrival_time = st.time_input("⏰ Arrival Time", datetime.strptime("09:00 AM", "%I:%M %p").time())
             
-        days = st.number_input("Days", min_value=1, value=2, step=1)
+        days = st.number_input("📆 Trip Duration (days)", min_value=1, value=2, step=1)
         
         city_attractions = df_places[df_places['city'] == selected_city]
-        selected_places = st.multiselect(f"Destinations", city_attractions['place_name'].tolist(), default=city_attractions['place_name'].tolist()[:2])
+        selected_places = st.multiselect(
+            "📍 Select Attractions",
+            city_attractions['place_name'].tolist(),
+            default=city_attractions['place_name'].tolist()[:2],
+            help="Choose multiple places you want to visit"
+        )
         
-        st.header("2. Preferences")
-        hotel_pref = st.selectbox("Hotel Level", ["low budget", "medium", "luxury"])
+        st.markdown("<div class='manual-step-box'><strong>Step 2: Your Preferences</strong></div>", unsafe_allow_html=True)
+        hotel_pref = st.selectbox("🏨 Hotel Budget Level", ["low budget", "medium", "luxury"])
         
-        st.markdown("Transport Preferences")
-        primary_transport = st.selectbox("Primary Choice", ["cab", "auto", "bike", "bus"], index=0)
-        secondary_transport = st.selectbox("Secondary Choice", ["cab", "auto", "bike", "bus"], index=1)
+        st.markdown("**🚕 Transport Preferences**", help="Choose your preferred transportation")
+        col_t1, col_t2 = st.columns(2)
+        with col_t1:
+            primary_transport = st.selectbox("Primary Choice", ["cab", "auto", "bike", "bus"], index=0)
+        with col_t2:
+            secondary_transport = st.selectbox("Backup Option", ["cab", "auto", "bike", "bus"], index=1)
         
-        if st.button("Calculate Quotes & Preview Trip", type="primary"):
+        if st.button("📋 Preview & Calculate Quotes", type="primary", use_container_width=True):
             if selected_places:
                 st.session_state.step = "preview"
                 # Store manual selections in session
@@ -355,9 +535,27 @@ with st.sidebar:
                 st.session_state.temp_secondary_transport = secondary_transport
                 st.rerun()
             else:
-                st.warning("Please select at least one destination.")
+                st.warning("⚠️ Please select at least one destination.")
 if st.session_state.step == "preview":
-    st.header("📝 Step 1: Preview & Customize Your Trip")
+    # Progress Indicator
+    st.markdown("""
+    <div class='progress-container'>
+        <div class='progress-step completed'>
+            <div class='step-circle'>✅</div>
+            <div class='step-label'>Trip Details</div>
+        </div>
+        <div class='progress-step active'>
+            <div class='step-circle'>2</div>
+            <div class='step-label'>Select & Pay</div>
+        </div>
+        <div class='progress-step'>
+            <div class='step-circle'>3</div>
+            <div class='step-label'>Itinerary</div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    st.markdown("<div class='section-header'>📋 Step 2: Select Hotel & Preview Costs</div>", unsafe_allow_html=True)
     
     # Retrieve data from session state (works perfectly for BOTH Manual and AI modes!)
     preview_places = st.session_state.temp_selected_places
@@ -373,83 +571,176 @@ if st.session_state.step == "preview":
     col1, col2 = st.columns([1.5, 1])
     
     with col1:
-        st.subheader("🏨 Select Your Hotel")
-        st.info(f"AI found the top available options based on your '{preview_hotel_pref}' preference.")
-        hotel_options = get_hotel_options(preview_hotel_pref)
+        st.markdown("<div style='font-size: 1.2em; font-weight: 700; margin-bottom: 1em;'>🏨 Hotel Options</div>", unsafe_allow_html=True)
+        st.markdown(f"<div class='info-box'>Top-rated hotels based on <strong>{st.session_state.temp_hotel_pref}</strong> budget preference</div>", unsafe_allow_html=True)
+        
+        hotel_options = get_hotel_options(st.session_state.temp_city, st.session_state.temp_hotel_pref)
         
         hotel_display_list = []
         for _, h in hotel_options.iterrows():
-            hotel_display_list.append(f"{h['hotel_name']} ({h['rating']}⭐) - $ {h['price_per_night']}/night per room")
+            hotel_display_list.append(f"{h['hotel_name']} ({h['rating']}⭐) - $ {h['price_per_night']}/night")
             
-        selected_hotel_str = st.radio("Choose one to proceed:", hotel_display_list)
+        selected_hotel_str = st.radio("Choose one to proceed:", hotel_display_list, key="hotel_radio")
         
         selected_hotel_name = selected_hotel_str.split(" (")[0]
         final_hotel = hotel_options[hotel_options['hotel_name'] == selected_hotel_name].iloc[0]
+        
+        # Display Hotel Details
+        st.markdown(f"""
+        <div class='hotel-card'>
+            <div style='display: flex; justify-content: space-between; align-items: center; margin-bottom: 1em;'>
+                <div>
+                    <div style='font-size: 1.3em; font-weight: 700;'>{final_hotel['hotel_name']}</div>
+                    <div style='color: #FF6B35; margin: 0.5em 0;'>{'⭐' * int(final_hotel['rating'])} {final_hotel['rating']}</div>
+                </div>
+                <div style='text-align: right;'>
+                    <div style='font-size: 1.5em; font-weight: 800; color: #FF6B35;'>$ {final_hotel['price_per_night']}</div>
+                    <div style='font-size: 0.9em; color: #666;'>per room/night</div>
+                </div>
+            </div>
+            <div style='padding-top: 1em; border-top: 1px solid #eee;'>
+                <div>✅ {final_hotel['available_rooms']} rooms available</div>
+                <div>✅ {final_hotel['location_type'].title()} accommodation</div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
 
     with col2:
-        st.subheader("💰 Cost Estimate")
+        st.markdown("<div style='font-size: 1.2em; font-weight: 700; margin-bottom: 1em;'>💰 Cost Breakdown</div>", unsafe_allow_html=True)
+        
+        # Retrieve data from session state
+        preview_places = st.session_state.temp_selected_places
+        preview_hotel_pref = st.session_state.temp_hotel_pref
+        preview_primary_transport = st.session_state.temp_primary_transport
+        preview_secondary_transport = st.session_state.temp_secondary_transport
+        
+        route_df = df_places[df_places['place_name'].isin(preview_places)]
+        optimized_df = optimize_route(route_df)
+        
+        assigned_transport, transport_status = assign_transport(preview_primary_transport, preview_secondary_transport)
+        
         h_cost, t_cost, f_cost, e_cost, total_cost = calculate_costs(
             final_hotel['price_per_night'], assigned_transport, optimized_df, st.session_state.temp_days, st.session_state.temp_people
         )
         
-        st.write(f"Travelers: {st.session_state.temp_people}")
-        st.write(f"Rooms Needed: {math.ceil(st.session_state.temp_people / 2)}")
+        # Cost breakdown cards
+        st.markdown(f"""
+        <div class='metric-card'>
+            <div class='metric-label'>Travelers</div>
+            <div class='metric-value'>{st.session_state.temp_people}</div>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        st.markdown(f"""
+        <div class='metric-card' style='margin-top: 0.5em;'>
+            <div class='metric-label'>Rooms ({st.session_state.temp_days} nights)</div>
+            <div class='metric-value'>$ {h_cost}</div>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        st.markdown(f"""
+        <div class='metric-card' style='margin-top: 0.5em;'>
+            <div class='metric-label'>Transport & Food</div>
+            <div class='metric-value'>$ {t_cost + f_cost}</div>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        st.markdown(f"""
+        <div class='metric-card' style='margin-top: 0.5em;'>
+            <div class='metric-label'>Entry Fees</div>
+            <div class='metric-value'>$ {e_cost}</div>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        st.markdown(f"""
+        <div style='background: linear-gradient(135deg, #FF6B35 0%, #F77F00 100%); color: white; 
+                    padding: 1.5em; border-radius: 12px; text-align: center; margin-top: 1em;'>
+            <div style='font-size: 0.95em; opacity: 0.9; margin-bottom: 0.5em;'>TOTAL TRIP COST</div>
+            <div style='font-size: 2.5em; font-weight: 800;'>$ {total_cost}</div>
+            <div style='font-size: 0.85em; opacity: 0.85; margin-top: 0.5em;'>Per person: $ {total_cost // st.session_state.temp_people}</div>
+        </div>
+        """, unsafe_allow_html=True)
+        
         st.markdown("---")
-        st.metric(f"Hotel ({st.session_state.temp_days} days)", f"$ {h_cost}")
-        st.metric("Local Transport", f"$ {t_cost}")
-        st.metric(f"Food & Entry (x{st.session_state.temp_people})", f"$ {f_cost + e_cost}")
-        st.markdown(f"### Total: $ {total_cost}")
-        st.markdown("---")
-        st.subheader(f"🌤️ Live Weather in {st.session_state.temp_city}")
-        # We use the coordinates of the first place in their route to get the city's weather
+        st.markdown(f"<div style='font-size: 1.1em; font-weight: 700; margin-bottom: 0.5em;'>🌤️ Live Weather</div>", unsafe_allow_html=True)
+        
         city_lat = optimized_df.iloc[0]['lat']
         city_lon = optimized_df.iloc[0]['lon']
         
         temp, wind = get_current_weather(city_lat, city_lon)
         if temp is not None:
             w_col1, w_col2 = st.columns(2)
-            w_col1.metric("Temperature", f"{temp} °C")
-            w_col2.metric("Wind Speed", f"{wind} km/h")
+            w_col1.metric("🌡️ Temperature", f"{temp}°C")
+            w_col2.metric("💨 Wind", f"{wind} km/h")
         else:
-            st.warning("Weather data currently unavailable.")
-        # ---------------------------
+            st.info("ℹ️ Weather data currently unavailable.")
         
-        if st.button("Confirm Booking & Pay", type="primary"):
+        st.markdown("---")
+        
+        if st.button("✅ Confirm & Pay Now", type="primary", use_container_width=True, key="pay_btn"):
             if st.session_state.wallet_balance >= total_cost:
-                st.toast(f"📡 Sending booking request to {final_hotel['hotel_name']}...", icon="🏨")
-                time.sleep(1.5)
-                st.toast(f"📡 Requesting ride approval from Uber/Rapido...", icon="📱")
-                time.sleep(1.5)
-                
-                st.session_state.wallet_balance -= total_cost
-                st.session_state.locked_total = total_cost
-                st.session_state.locked_hotel = final_hotel
-                st.session_state.locked_transport = assigned_transport
-                st.session_state.locked_route = optimized_df
-                st.session_state.step = "booked"
-                st.rerun()
+                with st.spinner("⏳ Processing payment..."):
+                    time.sleep(1)
+                    st.toast(f"🏨 Booking {final_hotel['hotel_name']}...", icon="👍")
+                    time.sleep(0.8)
+                    st.toast(f"🚕 Arranging {assigned_transport['vehicle_type']}...", icon="👍")
+                    time.sleep(0.8)
+                    
+                    st.session_state.wallet_balance -= total_cost
+                    st.session_state.locked_total = total_cost
+                    st.session_state.locked_hotel = final_hotel
+                    st.session_state.locked_transport = assigned_transport
+                    st.session_state.locked_route = optimized_df
+                    st.session_state.step = "booked"
+                    st.success("✅ Payment successful! Your trip is booked.")
+                    time.sleep(1.5)
+                    st.rerun()
             else:
-                st.error("❌ Insufficient Wallet Balance. Please deposit funds in the sidebar.")
+                missing = total_cost - st.session_state.wallet_balance
+                st.error(f"❌ Insufficient balance! You need $ {missing} more. Please deposit in the wallet.")
 # 7. UI STATE: BOOKED & ITINERARY
 elif st.session_state.step == "booked":
-    st.success("✅ PAYMENT SUCCESSFUL & TRIP BOOKED!")
+    # Progress Indicator
+    st.markdown("""
+    <div class='progress-container'>
+        <div class='progress-step completed'>
+            <div class='step-circle'>✅</div>
+            <div>Trip Details</div>
+        </div>
+        <div class='progress-step completed'>
+            <div class='step-circle'>✅</div>
+            <div>Select & Pay</div>
+        </div>
+        <div class='progress-step active'>
+            <div class='step-circle'>3</div>
+            <div>Itinerary</div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    st.markdown("""
+    <div class='success-banner'>
+        <div style='font-size: 2.5em; margin-bottom: 0.5em;'>✅ Payment Successful!</div>
+        <div style='font-size: 1.1em;'>Your dream trip to <strong>""" + st.session_state.temp_city + """</strong> is now booked!</div>
+    </div>
+    """, unsafe_allow_html=True)
     
     col1, col2 = st.columns([2, 1])
     with col1:
-        st.subheader("🗺️ Interactive Route Map")
+        st.markdown("<div class='section-header'>🗺️ Your Interactive Route Map</div>", unsafe_allow_html=True)
         df_locked = st.session_state.locked_route
         map_center = [df_locked['lat'].mean(), df_locked['lon'].mean()]
         m = folium.Map(location=map_center, zoom_start=12)
         
         route_coords = []
         for i, row in df_locked.iterrows():
-            folium.Marker([row['lat'], row['lon']], popup=row['place_name']).add_to(m)
+            folium.Marker([row['lat'], row['lon']], popup=f"<b>{row['place_name']}</b>", tooltip=row['place_name']).add_to(m)
             route_coords.append([row['lat'], row['lon']])
         
-        folium.PolyLine(route_coords, color="blue", weight=2.5, opacity=0.8).add_to(m)
-        st_folium(m, width=700, height=400)
+        folium.PolyLine(route_coords, color="#FF6B35", weight=3, opacity=0.9).add_to(m)
+        st_folium(m, width=700, height=450)
 
-        st.subheader(f"🗓️ Itinerary ({st.session_state.temp_city})")
+        st.markdown("<div class='section-header' style='margin-top: 2em;'>🗓️ Your Complete Itinerary</div>", unsafe_allow_html=True)
         
         places_per_day = len(df_locked) // st.session_state.temp_days
         places_per_day = 1 if places_per_day == 0 else places_per_day
@@ -457,50 +748,95 @@ elif st.session_state.step == "booked":
         
         for day in range(st.session_state.temp_days):
             current_date = st.session_state.temp_date + timedelta(days=day)
-            st.markdown(f"### Day {day + 1} - {current_date.strftime('%A, %b %d')}")
+            
+            st.markdown(f"""
+            <div class='card-container' style='background: linear-gradient(135deg, #FFF9E6 0%, #FFF5CC 100%);'>
+                <div style='font-size: 1.3em; font-weight: 800; color: #FF6B35;'>
+                    📅 Day {day + 1} · {current_date.strftime('%A, %B %d')}
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
             
             if day == 0:
                 current_time = datetime.combine(current_date, st.session_state.temp_time)
-                st.write(f"- 🚉 {current_time.strftime('%I:%M %p')} | Arrive at {st.session_state.temp_city} Station/Airport.")
+                st.markdown(f"- 🚉 **{current_time.strftime('%I:%M %p')}** → Arrive at {st.session_state.temp_city} Station/Airport")
                 current_time += timedelta(minutes=15)
                 
-                st.write(f"- 📱 {current_time.strftime('%I:%M %p')} | Uber/Rapido approval received for {st.session_state.locked_transport['vehicle_type']}.")
+                st.markdown(f"- 📱 **{current_time.strftime('%I:%M %p')}** → Transport approved: {st.session_state.locked_transport['vehicle_type'].upper()}")
                 current_time += timedelta(minutes=10)
                 
-                st.write(f"- 🚕 {current_time.strftime('%I:%M %p')} | Travel to {st.session_state.locked_hotel['hotel_name']} and drop luggage.")
+                st.markdown(f"- 🏨 **{current_time.strftime('%I:%M %p')}** → Check-in at {st.session_state.locked_hotel['hotel_name']}")
                 current_time += timedelta(minutes=45)
             else:
                 current_time = datetime.combine(current_date, datetime.strptime("09:00 AM", "%I:%M %p").time())
-                st.write(f"- 🏨 {current_time.strftime('%I:%M %p')} | Start day from {st.session_state.locked_hotel['hotel_name']}.")
+                st.markdown(f"- 🏨 **{current_time.strftime('%I:%M %p')}** → Start day from {st.session_state.locked_hotel['hotel_name']}")
             
             tasks_today = 0
             while current_place_idx < len(df_locked) and tasks_today < places_per_day:
                 place = df_locked.iloc[current_place_idx]
                 
-                st.write(f"- 📱 {current_time.strftime('%I:%M %p')} | Uber/Rapido approval received for ride to {place['place_name']}.")
                 current_time += timedelta(minutes=15)
+                st.markdown(f"- 🚕 **{current_time.strftime('%I:%M %p')}** → Travel to {place['place_name']}")
                 
-                st.write(f"- 📍 {current_time.strftime('%I:%M %p')} | Visit {place['place_name']} ({place['avg_time_spent']} hrs)")
                 current_time += timedelta(hours=place['avg_time_spent'])
+                st.markdown(f"- 📍 **{current_time.strftime('%I:%M %p')}** → Visit **{place['place_name']}** ({place['avg_time_spent']}h) | Entry: ${place['entry_fee']}")
+                
                 tasks_today += 1
                 current_place_idx += 1
                 
                 if current_time.hour >= 13 and current_time.hour < 15:
-                    st.write(f"- 🍽️ {current_time.strftime('%I:%M %p')} | Lunch Break.")
+                    st.markdown(f"- 🍽️ **{current_time.strftime('%I:%M %p')}** → Lunch break")
                     current_time += timedelta(hours=1)
             
-            st.write(f"- 📱 {current_time.strftime('%I:%M %p')} | Uber/Rapido approval received for return trip.")
             current_time += timedelta(minutes=20)
-            st.write(f"- 🚕 {current_time.strftime('%I:%M %p')} | Return to {st.session_state.locked_hotel['hotel_name']} and rest.")
-            st.write("")
+            st.markdown(f"- 🚕 **{current_time.strftime('%I:%M %p')}** → Return to {st.session_state.locked_hotel['hotel_name']}")
+            st.markdown("")
 
     with col2:
-        st.info(f"💵 Remaining Balance: $ {st.session_state.wallet_balance}")
-        st.markdown("### Confirmed Details")
-        st.write(f"🏨 {st.session_state.locked_hotel['hotel_name']} (Booking Approved)")
-        st.write(f"🚕 {st.session_state.locked_transport['vehicle_type'].capitalize()} (Uber/Rapido Approved)")
-        st.write(f"👥 {st.session_state.temp_people} Travelers")
-        st.metric(f"Total Paid", f"$ {st.session_state.locked_total}")
+        st.markdown("<div class='section-header'>📋 Trip Summary</div>", unsafe_allow_html=True)
+        
+        st.markdown(f"""
+        <div class='card-container'>
+            <div style='margin-bottom: 1em;'>
+                <div style='font-size: 0.9em; color: #666; margin-bottom: 0.5em;'>DESTINATION</div>
+                <div style='font-size: 1.5em; font-weight: 700;'>{st.session_state.temp_city}</div>
+            </div>
+            <hr style='margin: 1em 0; border: none; border-top: 1px solid #eee;'>
+            <div style='margin-bottom: 1em;'>
+                <div style='font-size: 0.85em; margin-bottom: 0.3em;'>🏨 Hotel</div>
+                <div style='font-weight: 600;'>{st.session_state.locked_hotel['hotel_name']}</div>
+                <div style='font-size: 0.85em; color: #FF6B35; margin-top: 0.3em;'>{'⭐' * int(st.session_state.locked_hotel['rating'])}</div>
+            </div>
+            <div style='margin-bottom: 1em;'>
+                <div style='font-size: 0.85em; margin-bottom: 0.3em;'>🚕 Transport</div>
+                <div style='font-weight: 600;'>{st.session_state.locked_transport['vehicle_type'].upper()}</div>
+            </div>
+            <div style='margin-bottom: 1em;'>
+                <div style='font-size: 0.85em; margin-bottom: 0.3em;'>👥 Travelers</div>
+                <div style='font-weight: 600;'>{st.session_state.temp_people} people</div>
+            </div>
+            <div>
+                <div style='font-size: 0.85em; margin-bottom: 0.3em;'>📆 Duration</div>
+                <div style='font-weight: 600;'>{st.session_state.temp_days} days</div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        st.markdown(f"""
+        <div style='background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%); 
+                    padding: 1.5em; border-radius: 12px; border-left: 5px solid #06A77D; margin: 1em 0;'>
+            <div style='font-size: 0.9em; color: #2E7D32; margin-bottom: 0.5em;'>💰 Wallet Balance</div>
+            <div style='font-size: 1.8em; font-weight: 800; color: #06A77D;'>$ {st.session_state.wallet_balance}</div>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        st.markdown(f"""
+        <div style='background: linear-gradient(135deg, #FCE4EC 0%, #F8BBD0 100%); 
+                    padding: 1.5em; border-radius: 12px; border-left: 5px solid #FF6B35;'>
+            <div style='font-size: 0.9em; color: #C2185B; margin-bottom: 0.5em;'>💳 Amount Paid</div>
+            <div style='font-size: 1.8em; font-weight: 800; color: #FF6B35;'>$ {st.session_state.locked_total}</div>
+        </div>
+        """, unsafe_allow_html=True)
         
         st.markdown("---")
         
@@ -517,12 +853,15 @@ elif st.session_state.step == "booked":
         )
         
         st.download_button(
-            label="📄 Download Itinerary PDF",
+            label="📄 Download Itinerary (PDF)",
             data=pdf_bytes,
-            file_name=f"{st.session_state.temp_city}_Itinerary.pdf",
-            mime="application/pdf"
+            file_name=f"{st.session_state.temp_city}_Itinerary_{st.session_state.temp_date.strftime('%Y%m%d')}.pdf",
+            mime="application/pdf",
+            use_container_width=True
         )
         
-        if st.button("Start New Plan"):
+        st.markdown("---")
+        
+        if st.button("🔄 Start New Trip", use_container_width=True):
             st.session_state.step = "input"
             st.rerun()

@@ -1,0 +1,81 @@
+city,place_name,category,entry_fee,avg_time_spent,distance_from_center,lat,lon
+Delhi,Red Fort,historical,250,2.5,5.2,28.6562,77.2410
+Delhi,Qutub Minar,historical,250,2.0,15.8,28.5245,77.1855
+Delhi,India Gate,monument,0,1.0,2.1,28.6129,77.2295
+Delhi,Lotus Temple,spiritual,0,1.5,12.3,28.5535,77.2588
+Delhi,Akshardham,spiritual,0,3.0,10.5,28.6127,77.2773
+Delhi,Chandni Chowk,shopping,0,2.5,6.4,28.6505,77.2303
+Delhi,Rajpath,monument,0,1.5,3.2,28.6239,77.1998
+Delhi,National Museum,museum,50,2.0,4.5,28.6073,77.2199
+Delhi,Humayun's Tomb,historical,200,1.5,8.2,28.5928,77.2509
+Delhi,Laxmi Narayan Temple,spiritual,0,1.0,7.1,28.6318,77.2254
+Jaipur,Hawa Mahal,historical,200,1.5,1.2,26.9239,75.8267
+Jaipur,Amber Fort,historical,500,3.0,11.2,26.9855,75.8513
+Jaipur,City Palace,museum,300,2.0,2.5,26.9255,75.8236
+Jaipur,Jal Mahal,monument,250,1.5,8.3,26.9673,75.8456
+Jaipur,Albert Hall Museum,museum,150,1.5,4.2,26.9116,75.8193
+Jaipur,Govind Dev Temple,spiritual,0,1.0,3.1,26.9254,75.8229
+Jaipur,Ram Niwas Garden,nature,50,1.5,3.8,26.9073,75.8081
+Jaipur,Jantar Mantar,historical,150,1.5,2.8,26.9244,75.8235
+Jaipur,Nahargarh Fort,historical,200,2.5,12.1,26.9394,75.7956
+Jaipur,Chokhi Dhani,cultural,300,3.0,18.5,27.0023,75.6745
+Goa,Baga Beach,nature,0,3.0,18.2,15.5528,73.7514
+Goa,Dudhsagar Falls,nature,400,4.0,60.5,15.3144,74.3143
+Goa,Anjuna Beach,nature,0,2.5,20.3,15.5819,73.7426
+Goa,Chapora Fort,historical,100,1.5,22.4,15.6057,73.7346
+Goa,Palolem Beach,nature,0,3.5,70.2,15.0099,74.0232
+Goa,Basilica of Bom Jesus,spiritual,0,1.5,35.8,15.4978,73.8347
+Goa,Fort Aguada,historical,150,2.0,15.6,15.4883,73.7637
+Goa,Calangute Beach,nature,0,2.5,11.2,15.5353,73.7604
+Goa,Shilim Waterfall,nature,0,3.0,50.1,15.4523,74.1234
+Goa,Arambol Beach,nature,0,2.5,48.7,15.7389,73.7325
+Hyderabad,Charminar,historical,100,1.5,4.2,17.3616,78.4747
+Hyderabad,Golconda Fort,historical,150,2.5,12.3,17.3833,78.4011
+Hyderabad,Hussain Sagar Lake,nature,0,2.0,5.1,17.4239,78.4738
+Hyderabad,Chowmahalla Palace,historical,300,2.0,5.5,17.3578,78.4717
+Hyderabad,Nehru Zoological Park,nature,150,3.5,16.2,17.3496,78.4510
+Hyderabad,Mecca Masjid,spiritual,0,1.0,4.8,17.3599,78.4823
+Hyderabad,Falaknuma Palace,historical,400,2.0,8.5,17.3301,78.4545
+Hyderabad,Ramakrishna Math Temple,spiritual,0,1.0,6.2,17.4015,78.4923
+Hyderabad,Birla Temple,spiritual,0,1.5,9.1,17.4089,78.4672
+Hyderabad,Taramati Baradari,historical,150,1.5,11.8,17.2987,78.3654
+Bangalore,Lalbagh Garden,nature,100,2.0,4.1,12.9507,77.5848
+Bangalore,Cubbon Park,nature,0,1.5,1.2,12.9779,77.5952
+Bangalore,Bangalore Palace,historical,600,2.0,5.3,12.9988,77.5921
+Bangalore,Vidhana Soudha,monument,0,1.0,2.1,12.9796,77.5906
+Bangalore,Wonderla,adventure,1500,6.0,28.4,12.8343,77.4010
+Bangalore,Tipu Sultan's Summer Palace,historical,150,1.5,3.2,12.9624,77.5816
+Bangalore,Iskcon Temple,spiritual,0,1.5,12.3,13.0333,77.5833
+Bangalore,Ulsoor Lake,nature,0,1.5,2.8,13.0051,77.6050
+Bangalore,National Gallery of Modern Art,museum,200,2.0,1.5,12.9745,77.5960
+Bangalore,Shree Venkateshwara Temple,spiritual,0,1.0,8.2,13.0389,77.6032
+Chennai,Marina Beach,nature,0,2.0,5.2,13.0500,80.2824
+Chennai,Kapaleeshwarar Temple,spiritual,0,1.0,7.3,13.0335,80.2697
+Chennai,Government Museum,museum,100,2.5,4.1,13.0732,80.2566
+Chennai,Elliot Beach,nature,0,2.0,10.5,13.0003,80.2736
+Chennai,Guindy National Park,nature,150,2.0,12.3,13.0076,80.2389
+Chennai,San Thome Cathedral,spiritual,0,1.0,6.2,13.0477,80.2814
+Chennai,Valluvar Kottam,monument,0,1.5,4.8,13.0525,80.2396
+Chennai,DakshinaChitra Museum,museum,200,2.5,30.2,12.8709,80.2088
+Chennai,Madras High Court,historical,0,1.0,2.5,13.0854,80.2642
+Chennai,Snow Kingdom,adventure,400,4.0,15.2,13.1456,80.1123
+Mumbai,Gateway of India,monument,0,1.0,2.3,18.9220,72.8347
+Mumbai,Marine Drive,nature,0,1.5,3.2,18.9440,72.8227
+Mumbai,Siddhivinayak Temple,spiritual,0,1.0,8.5,19.0166,72.8302
+Mumbai,Haji Ali Dargah,spiritual,0,1.5,6.3,18.9827,72.8089
+Mumbai,Sanjay Gandhi National Park,nature,200,4.0,30.5,19.2147,72.9106
+Mumbai,Taj Mahal Palace,historical,0,1.0,2.8,18.9224,72.8323
+Mumbai,Elephanta Caves,historical,300,4.0,12.2,18.9616,72.9324
+Mumbai,Prince of Wales Museum,museum,500,2.0,4.5,18.9669,72.8249
+Mumbai,Chhatrapati Shivaji Maharaj Terminus,monument,0,1.5,5.2,18.9827,72.8345
+Mumbai,Hanging Gardens,nature,0,1.5,9.2,19.0245,72.8134
+Varanasi,Kashi Vishwanath Temple,spiritual,0,1.5,2.3,25.3109,83.0107
+Varanasi,Dashashwamedh Ghat,cultural,0,1.5,1.2,25.3065,83.0106
+Varanasi,Sarnath Museum,historical,100,2.0,10.5,25.3811,83.0242
+Varanasi,Ramnagar Fort,historical,150,2.0,14.2,25.2698,83.0252
+Varanasi,Assi Ghat,cultural,0,1.5,4.3,25.2886,83.0055
+Varanasi,Bharat Mata Temple,spiritual,0,1.0,3.2,25.3245,83.0178
+Varanasi,Manikarnika Ghat,cultural,0,1.0,1.8,25.3141,82.9954
+Varanasi,Dhamekh Stupa,spiritual,0,2.0,12.3,25.3894,83.0289
+Varanasi,Banaras Hindu University,educational,0,2.0,8.5,25.3087,83.1896
+Varanasi,Godaulia,shopping,0,2.0,2.1,25.3181,83.0134
