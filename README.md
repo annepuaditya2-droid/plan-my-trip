@@ -1,163 +1,139 @@
-🧠 Smart Planner – AI Travel Planner
+# ✈️ AI Travel Planner
 
-Smart Planner is an AI-powered travel planning web app that automatically creates personalized travel itineraries based on user preferences such as budget, interests, number of travelers, and trip duration.
+An AI-powered travel planning prototype that combines hotel recommendations, transport planning, route mapping, weather updates, and itinerary generation into one platform.
 
-The system uses LLM (Gemini AI via LangChain) to understand natural language travel requests and generate a complete trip plan, including:
+## 🌍 Problem Statement
 
-destination recommendations
-hotel suggestions
-transport options
-cost estimation
-optimized route map
-real-time weather
-downloadable itinerary PDF
-✨ Features
-🤖 AI Travel Planning
+Planning a trip usually requires multiple applications:
 
-Users can simply type:
+- 🏨 Hotel booking apps
+- 🚕 Transport apps
+- 🗺️ Map/navigation apps
+- 🍽️ Restaurant discovery apps
+- 🌦️ Weather apps
 
-“I want to visit Jaipur for 2 days with 3 friends, medium budget hotel, historical places, prefer cab”
+This project explores the idea of creating a **single intelligent platform** where users can manage their entire trip experience in one place using natural language.
 
-The AI extracts:
+---
 
-city
-number of people
-days
-interests
-transport preference
-budget type
+## 💡 Project Idea
 
-and automatically generates a full trip plan.
+The app acts as a unified travel assistant.
 
-🧭 Dual Mode System
+Users can enter prompts like:
 
-Users can plan trips in two ways:
+> "I want to visit Jaipur with 3 friends for 2 days with a luxury hotel and cab transport."
 
-1. AI Mode
+The AI then:
+- Understands the travel request
+- Suggests attractions
+- Recommends hotels
+- Estimates transport costs
+- Generates optimized routes
+- Shows weather updates
+- Creates downloadable itinerary PDFs
 
-Enter natural language prompt
-AI creates plan automatically
+---
 
-2. Manual Mode
+## 🚀 Features
 
-Select city
-choose places
-choose hotel type
-choose transport
-customize trip
-🏨 Smart Hotel Recommendation
+### ✨ AI Mode
+- Natural language trip planning
+- AI-powered intent extraction using Gemini + LangChain
+- Automatic attraction filtering based on interests
 
-Hotels are selected based on:
+### ⚙️ Manual Mode
+- Manual city and attraction selection
+- Transport preference selection
+- Budget customization
 
-budget type
-rating
-room availability
+### 🏨 Smart Hotel Suggestions
+- Budget-based hotel filtering
+- Availability checking
+- Rating-based recommendations
 
-Budget options:
+### 🚕 Transport Planning
+- Cab/auto/bus assignment
+- Cost estimation
+- Fallback transport system
 
-low budget
-medium
-luxury
-🚕 Intelligent Transport Assignment
+### 🗺️ Route Optimization
+- Optimized attraction ordering
+- Interactive maps using Folium
 
-Transport is automatically assigned based on:
+### 🌦️ Live Weather Integration
+- Real-time weather using Open-Meteo API
 
-user preference
-vehicle availability
-fallback logic if unavailable
+### 📄 PDF Itinerary Generator
+- Generates downloadable travel itineraries
 
-Transport types:
+### 💳 Travel Wallet System
+- Deposit/withdraw simulation
+- Booking confirmation workflow
 
-cab
-auto
-bike
-bus
-💰 Cost Estimation Engine
+---
 
-System calculates total cost including:
+## 🛠️ Tech Stack
 
-hotel cost
-transport cost (per km)
-food estimate
-entry tickets
+| Technology | Usage |
+|------------|-------|
+| Python | Backend Logic |
+| Streamlit | Web Application |
+| LangChain | AI Workflow |
+| Gemini API | Natural Language Understanding |
+| Pandas | Data Processing |
+| Folium | Interactive Maps |
+| FPDF | PDF Generation |
 
-Example formula:
+---
 
-Total Cost =
-Hotel Cost +
-Transport Cost +
-Food Cost +
-Entry Fees
+## 🧠 AI Workflow
 
-🗺️ Route Optimization
+1. User enters travel request
+2. Gemini AI extracts trip details
+3. Attractions are filtered
+4. Hotels and transport are assigned
+5. Costs are calculated
+6. Route is optimized
+7. PDF itinerary is generated
 
-Destinations are optimized based on distance from city center to reduce travel time.
+---
 
-Interactive map shows:
+## 📂 Dataset
 
-destination markers
-travel route path
-🌤️ Live Weather Integration
+The prototype currently uses local CSV datasets for:
+- Places
+- Hotels
+- Transport services
 
-Weather data is fetched using Open-Meteo API.
+This project is a prototype and does not use real integrations with platforms like Booking.com, Rapido, Ola, etc.
 
-Shows:
+---
 
-temperature
-wind speed
+## 📸 Screenshots
 
-Helps users plan better.
+(Add screenshots here)
 
-💳 Travel Wallet Simulation
+---
 
-Simulates real booking flow:
+## 🔮 Future Improvements
 
-deposit money
-confirm booking
-deduct balance
+- Real hotel booking integrations
+- Live transport APIs
+- Restaurant recommendations
+- AI budget optimization
+- Multi-city trip planning
+- User authentication
+- Payment gateway integration
 
-Adds real-world experience.
+---
 
-📄 PDF Itinerary Generator
+## ▶️ Installation
 
-Generates structured travel plan including:
+```bash
+git clone <your-repo-link>
+cd ai-travel-planner
 
-day wise schedule
-travel timing
-hotel details
-destination visits
+pip install -r requirements.txt
 
-Users can download itinerary as PDF.
-
-🛠️ Tech Stack
-Frontend
-Streamlit
-AI / NLP
-Google Gemini
-LangChain
-Pydantic
-Data Processing
-Pandas
-CSV datasets
-Maps & Visualization
-Folium
-streamlit-folium
-APIs
-Open Meteo Weather API
-Document Generation
-FPDF
-📂 Project Structure
-smart-planner/
-│
-├── app.py
-├── places.csv
-├── hotels.csv
-├── transport.csv
-│
-├── modules/
-│   ├── ai_engine.py
-│   ├── cost_calculator.py
-│   ├── route_optimizer.py
-│   ├── pdf_generator.py
-│
-└── README.md
+streamlit run app.py
